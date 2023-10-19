@@ -5,6 +5,7 @@ import Home from "../pages/Home/Home";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import SingleBrand from "../pages/SingleBrand/SingleBrand";
+import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/addproduct",
         element: <AddProduct />,
+      },
+      {
+        path: "/updateproduct",
+        element: <UpdateProduct />,
       },
       {
         path: "/brand/:brandName",
