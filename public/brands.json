@@ -1,7 +1,7 @@
  [
   {
     "id": 1,
-    "brandName": "Apple",
+    "brandName": "apple",
     "brandImg": "https://i.postimg.cc/43RBTPTz/apple-logo-3.webp",
     "carouselImgOne": "https://i.postimg.cc/28V1zfkD/product-Carousel-One.png",
     "carouselImgTwo": "https://i.postimg.cc/K8T4Mr3p/product-Carousel-Three.png",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "brandName": "Samsung",
+    "brandName": "samsung",
     "brandImg": "https://i.postimg.cc/c4svP8jr/samsung-Logo2.png",
     "carouselImgOne": "https://i.postimg.cc/YSf9Xr31/products-Carousel-Five.jpg",
     "carouselImgTwo": "https://i.postimg.cc/448Kk3TP/product-Carousel-Eight.jpg",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "brandName": "Google",
+    "brandName": "google",
     "brandImg": "https://i.postimg.cc/5jcFFPgg/google-Logo.png",
     "carouselImgOne": "https://i.postimg.cc/kGhDxTyz/home-Carousel-Four.webp",
     "carouselImgTwo": "https://i.postimg.cc/XqvpGR99/home-Carousel-Five.webp",
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "brandName": "Sony",
+    "brandName": "sony",
     "brandImg": "https://i.postimg.cc/7ZzrVKV7/sony-Logo2.png",
     "carouselImgOne": "https://i.postimg.cc/W3NL9PNK/products-Carousel-Ten.png",
     "carouselImgTwo": "https://i.postimg.cc/hGbRbGBT/products-Carousel-Nine.png",
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "brandName": "Intel",
+    "brandName": "intel",
     "brandImg": "https://i.postimg.cc/3wwChcc0/Intel.png",
     "carouselImgOne": "https://i.postimg.cc/LX2qRYXC/home-Carousel-One.jpg",
     "carouselImgTwo": "https://i.postimg.cc/LX2qRYXC/home-Carousel-One.jpg",
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "brandName": "Dell",
+    "brandName": "dell",
     "brandImg": "https://i.postimg.cc/SKLSgh8F/dellLogo.png",
     "carouselImgOne": "https://i.postimg.cc/LX2qRYXC/home-Carousel-One.jpg",
     "carouselImgTwo": "https://i.postimg.cc/LX2qRYXC/home-Carousel-One.jpg",

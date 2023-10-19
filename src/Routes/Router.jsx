@@ -4,6 +4,7 @@ import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import SingleBrand from "../pages/SingleBrand/SingleBrand";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/addproduct",
         element: <AddProduct />,
+      },
+      {
+        path: "/brand/:brandName",
+        element: <SingleBrand />,
       },
     ],
   },
