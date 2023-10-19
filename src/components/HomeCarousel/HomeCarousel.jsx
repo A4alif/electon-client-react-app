@@ -28,10 +28,10 @@ const HomeCarousel = () => {
         ]}
         spaceBetween={30}
         slidesPerView={1}
-        autoplay={{
-          delay: 2200,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 2200,
+        //   disableOnInteraction: false,
+        // }}
         pagination={{ clickable: true }}
         effect={"creative"}
         creativeEffect={{
