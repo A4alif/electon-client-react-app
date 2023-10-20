@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
   const {
@@ -34,7 +35,31 @@ const AddProduct = () => {
       warranty,
     };
 
-    
+    fetch("http://localhost:5001/products", {
+      method: "Post",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(productInfo)
+    })
+    .then( res => res.json())
+    .then( data => {
+      if(data.insertedId){
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Products Added Successfully',
+         
+        })
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Something Went Wrong',
+         
+        })
+      }
+    })
     
   };
 
