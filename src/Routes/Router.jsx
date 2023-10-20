@@ -7,6 +7,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import SingleBrand from "../pages/SingleBrand/SingleBrand";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
+import Cart from "../pages/Cart/Cart";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <ProductDetails />
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+        loader: () => fetch("http://localhost:5001/myCart")
       },
     ],
   },
