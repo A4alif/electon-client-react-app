@@ -6,6 +6,7 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import SingleBrand from "../pages/SingleBrand/SingleBrand";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
+import ProductDetails from "../components/ProductDetails/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/brand/:brandName",
-        element: <SingleBrand />,
+        element: <SingleBrand />
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetails />
       },
     ],
   },
