@@ -6,6 +6,7 @@ const AddProduct = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -48,9 +49,10 @@ const AddProduct = () => {
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: 'Products Added Successfully',
+          text: 'Product Added Successfully',
          
         })
+        reset();
       } else {
         Swal.fire({
           icon: 'error',
@@ -285,6 +287,7 @@ const AddProduct = () => {
                 <option value="watch">Watch</option>
                 <option value="processor">Processor</option>
                 <option value="tablet">Tablet</option>
+                <option value="camera">Camera</option>
               </select>
               <p className="text-red-500 pt-1">{errors.productType?.message}</p>
             </div>
