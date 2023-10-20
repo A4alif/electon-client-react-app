@@ -8,6 +8,8 @@ import SingleBrand from "../pages/SingleBrand/SingleBrand";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
 import Cart from "../pages/Cart/Cart";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
         loader: () => fetch("http://localhost:5001/myCart")
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/register",
+        element: <Register />
       },
     ],
   },

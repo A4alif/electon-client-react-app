@@ -37,7 +37,7 @@ const Footer = () => {
             Address
           </h2>
           <p className="leading-9 text-gray-500 hover:underline">
-            49 West 32nd Street, New York, 4.9 mi 7.9 km from Downtown
+            49 West 42nd Street, New York, 4.9 mi 7.9 km from Downtown
             United States
           </p>
         </div>
@@ -45,7 +45,7 @@ const Footer = () => {
       <div className="h-px bg-gray-700 "></div>
       <div className="mt-9">
         <p className="text-center text-gray-300">
-          &copy; 2023 EventTech All Rights Reserved{" "}
+          &copy; 2023 Electon All Rights Reserved{" "}
         </p>
       </div>
     </div>
