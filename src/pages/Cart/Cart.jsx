@@ -42,23 +42,23 @@ const Cart = () => {
     
   return (
     <div>
-      <div className="container mx-auto px-4 py-24">
+      <div className="container mx-auto px-4 py-24 ">
         {products?.length === 0 ? (
           <div>
-            <h2 className="text-2xl text-center font-bold">
+            <h2 className="text-2xl text-center font-bold my-28">
               You did not add any products to cart
             </h2>
           </div>
         ) : (
           <div>
-            <h2 className="text-3xl text-center font-bold">
+            <h2 className="text-3xl text-center font-bold ">
               You have added{" "}
               <span className="single-text-gradient">{products?.length}</span>{" "}
               products to cart
             </h2>
             <div className="w-3/4 mx-auto">
               {/* table */}
-              <div className="overflow-x-auto mt-6">
+              <div className="overflow-x-auto mt-6 mb-24">
                 <table className="table">
                   {/* head */}
                   <thead>

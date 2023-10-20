@@ -3,6 +3,8 @@ import profile from "../../assets/profile-pic.jpg";
 import logo from "../../assets/electonLogo.png";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs";
+
 
 const Navbar = () => {
   return (
@@ -68,6 +70,10 @@ const Navbar = () => {
               <h2 className="text-2xl font-bold md:text-3xl single-text-gradient">
                 Electon
               </h2>
+              <div>
+                <BsMoonStarsFill className="cursor-pointer" size={30} />
+                {/* <BsFillSunFill className="cursor-pointer" size={30} /> */}
+              </div>
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
@@ -108,6 +114,7 @@ const Navbar = () => {
                 />
               </div>
               <h2 className="text-sm font-semibold">Alif Hasan Shah</h2>
+              
             </div>
             <div className="ml-6 flex  space-x-1">
              <Link to={'/login'}> <button
@@ -117,7 +124,7 @@ const Navbar = () => {
                 LogIn
               </button></Link>
               <div>
-                <Link to={'/cart'}><p> <AiOutlineShoppingCart className="text-purple-600" size={40} /></p></Link>
+                <Link to={'/cart'}><AiOutlineShoppingCart className="text-purple-600" size={40} /></Link>
               </div>
             </div>
           </div>
