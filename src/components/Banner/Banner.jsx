@@ -4,11 +4,11 @@ import HomeCarousel from '../HomeCarousel/HomeCarousel'
 const Banner = () => {
   return (
     <div>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 pt-9 pb-9">
-        <div className="col-span-3">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-1 pt-9 pb-9">
+        <div className="col-span-4 mr-4">
           <HomeCarousel />
         </div>
-        <div className="col-span-2">
+        <div className="col-span-1 ">
           <div className="h-[198px] mb-2">
             <img className="h-full" src="https://i.postimg.cc/7YWT7Zsh/home-Banner-One.jpg" alt="" />
           </div>

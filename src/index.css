@@ -5,6 +5,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #F9F9F7;
 }
 .single-text-gradient {
   background: linear-gradient(180deg, #6499e9 0%, #8758f1 100%);
@@ -15,4 +16,8 @@ body {
 .swiper-pagination-bullet-active{
   background-color: white !important;
   
+}
+
+.card-box-shadow{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }

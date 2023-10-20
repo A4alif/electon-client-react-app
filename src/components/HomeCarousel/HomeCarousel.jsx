@@ -58,6 +58,15 @@ const HomeCarousel = () => {
         <SwiperSlide>
           <div>
             <img
+              className="w-full h-[400px] object-cover "
+              src="https://i.postimg.cc/ncLV1xYM/home-Carousel-Fourteen.png"
+              alt=""
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
               className="w-full h-[400px] "
               src="https://i.postimg.cc/V6gJNf0Y/home-Carousel-Three.webp"
               alt=""
