@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -24,6 +25,39 @@ const ProductDetails = () => {
     warranty,
     name,
   } = product;
+
+  const addToCart = {
+    name,
+    price
+  }
+  const handleAddToCart = () => {
+   fetch("http://localhost:5001/myCart",{
+    method: "POST",
+    headers: {
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify(addToCart)
+   })
+   .then(res => res.json())
+   .then(data => {
+    if(data.insertedId){
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Product Added To Cart',
+         
+        })
+        
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Something Went Wrong',
+         
+        })
+      }
+   })
+  }
   return (
     <div>
       <div className="container mx-auto  ">
@@ -79,7 +113,7 @@ const ProductDetails = () => {
                     <p>Rating: {rating}</p>
                   </div>
                   <div className="mt-4">
-                  <button className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                  <button onClick={handleAddToCart} className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                Add to Cart
               </button>
                   </div>
