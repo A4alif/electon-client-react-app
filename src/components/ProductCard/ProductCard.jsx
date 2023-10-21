@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Rating } from "react-simple-star-rating";
 
 const ProductCard = ({ product }) => {
   const {
@@ -27,7 +28,7 @@ const ProductCard = ({ product }) => {
         <div className="px-8 pb-8">
           <div className="flex justify-between items-center mb-4">
             <h2 className="card-title ">{name}</h2>
-            <p >Rating:{rating}</p>
+            <p ><Rating size={20} allowHover={false} initialValue={rating} /></p>
           </div>
           <div className="flex space-x-3 ">
             <div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Rating } from "react-simple-star-rating";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -110,7 +111,7 @@ const ProductDetails = () => {
                     </p>
                   </div>
                   <div className="my-6">
-                    <p>Rating: {rating}</p>
+                    <p><Rating size={25} allowHover={false} initialValue={rating} /></p>
                   </div>
                   <div className="mt-4">
                   <button onClick={handleAddToCart} className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
