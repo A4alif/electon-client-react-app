@@ -1,8 +1,60 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-
+import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import { toast } from "react-toastify";
+import { auth } from "../../firebase/firebase.config";
 const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const {createUser} = useContext(AuthContext)
+
+  const navigate = useNavigate();
+
+  const handleRegister = (data) => {
+    const {name, photourl, email, password} = data;
+   createUser(email, password)
+   .then( (result) => {
+    toast.success('Successfully Registered', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+      
+      updateProfile(auth.currentUser, {
+        displayName: name, photoURL: photourl,
+      }).then(() => {
+        // Profile updated!
+        // ...
+      }).catch((error) => {
+        toast.error('Something Went Wrong', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      });
+      navigate('/');
+   })
+   .catch( (error) => {
+    toast(error.message)
+   })
+  };
   return (
     <>
       <div>
@@ -21,7 +73,7 @@ const Register = () => {
                   <p className="text-center text-xl font-semibold mb-4">
                     Please Register
                   </p>
-                  <form>
+                  <form onSubmit={handleSubmit(handleRegister)} noValidate>
                     <div className="w-3/4 mx-auto mb-4 ">
                       <label
                         className="block text-xl mb-4 font-semibold"
@@ -31,11 +83,18 @@ const Register = () => {
                       </label>
                       <input
                         className="bg-gray-200 w-full py-2 px-2 rounded-md focus:outline-none "
+                        {...register('name', {
+                          required: {
+                            value: true,
+                            message: "Name is Required",
+                          }
+                        })}
                         type="text"
                         name="name"
                         id="name"
                         placeholder="name"
                       />
+                      <p className="text-pink-600">{errors.name?.message}</p>
                     </div>
                     <div className="w-3/4 mx-auto mb-4 ">
                       <label
@@ -46,11 +105,18 @@ const Register = () => {
                       </label>
                       <input
                         className="bg-gray-200 w-full py-2 px-2 rounded-md focus:outline-none "
+                        {...register('photourl', {
+                          required: {
+                            value: true,
+                            message: "PhotoUrl is Required",
+                          }
+                        })}
                         type="text"
                         name="photourl"
                         id="photourl"
                         placeholder="photourl"
                       />
+                      <p className="text-pink-600">{errors.photourl?.message}</p>
                     </div>
                     <div className="w-3/4 mx-auto mb-4 ">
                       <label
@@ -61,11 +127,22 @@ const Register = () => {
                       </label>
                       <input
                         className="bg-gray-200 w-full py-2 px-2 rounded-md focus:outline-none "
+                        {...register('email', {
+                          required: {
+                            value: true,
+                            message: "Email is Required",
+                          },
+                          pattern: {
+                            value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                            message: "Provide a valid Email",
+                          }
+                        })}
                         type="email"
                         name="email"
                         id="email"
                         placeholder="email"
                       />
+                      <p className="text-pink-600">{errors.email?.message}</p>
                     </div>
                     <div className="w-3/4 mx-auto mb-4 ">
                       <label
@@ -76,11 +153,23 @@ const Register = () => {
                       </label>
                       <input
                         className="bg-gray-200 w-full py-2 px-2 rounded-md focus:outline-none "
+                        {...register('password', {
+                          required: {
+                            value: true,
+                            message: "Password is Required",
+                          },
+                          pattern:{
+                            value:  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+                            message: "Password must be 6 character, One uppercase, lowercase and special character"
+                          }
+                          
+                        })}
                         type="password"
                         name="password"
                         id="password"
                         placeholder="password"
                       />
+                      <p className="text-pink-600">{errors.password?.message}</p>
                     </div>
                     <div className="w-3/4 mx-auto mb-4 mt-6 ">
                       <button

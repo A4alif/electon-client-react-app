@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import profile from "../../assets/profile-pic.jpg";
 import logo from "../../assets/electonLogo.png";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
+
 
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        toast("Logged Out");
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <>
       <div className="container mx-auto px-6">
@@ -109,22 +121,42 @@ const Navbar = () => {
               <div>
                 <img
                   className="h-12 w-12 rounded-full object-cover"
-                  src={profile}
+                  src={user?.photoURL }
                   alt=""
                 />
               </div>
-              <h2 className="text-sm font-semibold">Alif Hasan Shah</h2>
-              
+              <h2 className="text-sm font-semibold">{user?.displayName}</h2>
             </div>
             <div className="ml-6 flex  space-x-1">
-             <Link to={'/login'}> <button
-                type="button"
-                className="text-white  bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-semibold rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
-              >
-                LogIn
-              </button></Link>
+              {user ? (
+                <Link>
+                  {" "}
+                  <button
+                    onClick={handleSignOut}
+                    type="button"
+                    className="text-white  bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-semibold rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
+                  >
+                    Log Out
+                  </button>
+                </Link>
+              ) : (
+                <Link to={"/login"}>
+                  {" "}
+                  <button
+                    type="button"
+                    className="text-white  bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-semibold rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
+                  >
+                    LogIn
+                  </button>
+                </Link>
+              )}
               <div>
-                <Link to={'/cart'}><AiOutlineShoppingCart className="text-purple-600" size={40} /></Link>
+                <Link to={"/cart"}>
+                  <AiOutlineShoppingCart
+                    className="text-purple-600"
+                    size={40}
+                  />
+                </Link>
               </div>
             </div>
           </div>
