@@ -7,7 +7,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5001/product/${id}`)
+    fetch(`https://electon-server.vercel.app/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -31,7 +31,7 @@ const ProductDetails = () => {
     price
   }
   const handleAddToCart = () => {
-   fetch("http://localhost:5001/myCart",{
+   fetch("https://electon-server.vercel.app/myCart",{
     method: "POST",
     headers: {
         'content-type': 'application/json'

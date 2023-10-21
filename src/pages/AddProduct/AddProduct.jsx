@@ -36,7 +36,7 @@ const AddProduct = () => {
       warranty,
     };
 
-    fetch("http://localhost:5001/products", {
+    fetch("https://electon-server.vercel.app/products", {
       method: "Post",
       headers: {
         'content-type': 'application/json'

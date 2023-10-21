@@ -7,7 +7,7 @@ const Cart = () => {
   const [products, setProducts] = useState(loadedProducts);
 
   const handleDelete = (id) => {
-   fetch(`http://localhost:5001/mycart/${id}`, {
+   fetch(`https://electon-server.vercel.app/mycart/${id}`, {
     method: "DELETE"
    })
    .then(res => res.json())

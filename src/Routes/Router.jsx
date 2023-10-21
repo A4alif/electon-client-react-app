@@ -24,32 +24,49 @@ const router = createBrowserRouter([
       },
       {
         path: "/addproduct",
-        element: <PrivateRoute><AddProduct /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AddProduct />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/updateproduct/:id",
-        element: <UpdateProduct />,
+        element: (
+          <PrivateRoute>
+            <UpdateProduct />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/brand/:brandName",
-        element: <SingleBrand />
+        element: <SingleBrand />,
       },
       {
         path: "/product/:id",
-        element: <ProductDetails />
+        element: (
+          <PrivateRoute>
+            <ProductDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
-        loader: () => fetch("http://localhost:5001/myCart")
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Cart />
+          </PrivateRoute>
+        ),
+        loader: () => fetch("https://electon-server.vercel.app/myCart"),
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register />
+        element: <Register />,
       },
     ],
   },

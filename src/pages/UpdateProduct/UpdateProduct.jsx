@@ -7,7 +7,7 @@ const UpdateProduct = () => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5001/product/${id}`)
+    fetch(`https://electon-server.vercel.app/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -40,7 +40,7 @@ const UpdateProduct = () => {
       warranty,
     };
 
-    fetch(`http://localhost:5001/updateproduct/${product?._id}`, {
+    fetch(`https://electon-server.vercel.app/updateproduct/${product?._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

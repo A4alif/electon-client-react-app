@@ -14,7 +14,7 @@ const Brands = () => {
             <h2 className='text-3xl font-semibold text-center py-9 mb-9'>Unleash Innovation with our Diverse <span className='single-text-gradient'>brand Selection!</span></h2>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-9'>
                {
-                brands.map( (brand) => (
+                brands?.map( (brand) => (
                     <BrandCard key={brand.id} brand={brand} />
                 ))
                }

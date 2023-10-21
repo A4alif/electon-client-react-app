@@ -8,7 +8,7 @@ const SingleBrand = () => {
   const [brandProducts, setBrandProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5001/products/${brandName}`)
+    fetch(`https://electon-server.vercel.app/products/${brandName}`)
       .then((res) => res.json())
       .then((data) => setBrandProducts(data));
   }, []);
