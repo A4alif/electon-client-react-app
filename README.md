@@ -1,8 +1,21 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Electon React App [(Live Site)](https://electon-client.vercel.app/)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Features of this app
+
+- The user can see products based on the brand name.
+- The user can update product information.
+- Add product to their cart
+- Delete Products from cart as well.
+- The user can add new products.
+- This site has firebase email password authentication.
+- Google login auth also implemented
+## Author
+
+- [@Alif Hasan Shah](https://github.com/A4alif)
+
+## 
+
+[![Alif Hasan Shah](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alifhasanshah/)
