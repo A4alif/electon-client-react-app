@@ -13,7 +13,7 @@ const Root = () => {
   }, [pathname]);
   return (
     <div>
-      <header className="bg-gray-100 py-2">
+      <header className="bg-base-100 py-2">
         <Navbar />
       </header>
       <main>

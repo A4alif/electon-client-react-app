@@ -1,15 +1,31 @@
-import React, { useContext } from "react";
-import profile from "../../assets/profile-pic.jpg";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../../assets/electonLogo.png";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs";
+import { BsFillSunFill, BsFillMoonStarsFill } from "react-icons/bs";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { FaUserCircle } from "react-icons/fa";
-
-
 
 const Navbar = () => {
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+
+  // update state on toggle
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  // set theme state in localstorage on mount & also update localstorage on state change
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    // add custom data-theme attribute to html tag required to update theme using DaisyUI
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
   const { user, logOut } = useContext(AuthContext);
 
   const handleSignOut = () => {
@@ -22,7 +38,7 @@ const Navbar = () => {
   return (
     <>
       <div className="container mx-auto px-6">
-        <div className="navbar py-4 ">
+        <div className="navbar bg-base-100 py-4 ">
           <div className="navbar-start">
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -82,9 +98,28 @@ const Navbar = () => {
               <h2 className="text-2xl font-bold md:text-3xl single-text-gradient">
                 Electon
               </h2>
+              {/* dark mode button */}
+
               <div>
-                <BsMoonStarsFill className="cursor-pointer" size={30} />
-                {/* <BsFillSunFill className="cursor-pointer" size={30} /> */}
+                <div className="flex-none">
+                  {/* Toggle button here */}
+                  <button className="btn btn-square btn-ghost">
+                    <label className="swap swap-rotate w-12 h-12">
+                      <input
+                        type="checkbox"
+                        onChange={handleToggle}
+                        // show toggle image based on localstorage theme
+                        checked={theme === "light" ? false : true}
+                      />
+                      {/* show sun or moon icon */}
+                      {theme === "light" ? (
+                        <BsFillSunFill size={20} />
+                      ) : (
+                        <BsFillMoonStarsFill size={20} />
+                      )}
+                    </label>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -121,7 +156,7 @@ const Navbar = () => {
               <div>
                 <img
                   className="h-12 w-12 rounded-full object-cover"
-                  src={user?.photoURL }
+                  src={user?.photoURL}
                   alt=""
                 />
               </div>
